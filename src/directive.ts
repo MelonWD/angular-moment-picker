@@ -49,6 +49,9 @@ export default class Directive implements ng.IDirective {
 		private $templateCache: ng.ITemplateCacheService) { }
 
 	public link = ($scope: IDirectiveScopeInternal, $element: ng.IAugmentedJQuery, $attrs: ng.IAttributes, $ctrl: IModelController, $transclude: ng.ITranscludeFunction) => {
+		if($element.hasClass('moment-picker-input')){
+			return;
+		}
 		$transclude(($transElement: ng.IAugmentedJQuery) => {
 			// one-way binding attributes
 			angular.forEach([
